@@ -6,8 +6,8 @@ zold = 0
 z = 0
 q = 0
 
-rea  = ("input_file.txt")
-wri = ("graham_export_file.txt")
+rea  = "input_file.txt"
+wri = "graham_export_file.txt"
 filen = (rea,"r")
 filewr = (wri,"w")
 with open(rea,"r") as x:
