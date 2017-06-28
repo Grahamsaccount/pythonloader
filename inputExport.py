@@ -1,11 +1,17 @@
+
+
 y = 0
 z2 = 3
 zold = 0
 z = 0
 q = 0
-filenew = open("input_file.txt","r")
-filewr = open
-with open() as x:
+
+rea  = ("input_file.txt")
+wri = ("graham_export_file.txt")
+filen = (rea,"r")
+filewr = (wri,"w")
+with open(rea,"r") as x:
+	contents = x.read()
 
 	if "jpg" in x:
 
