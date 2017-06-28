@@ -8,15 +8,14 @@ q = 0
 
 rea  = "input_file.txt"
 wri = "graham_export_file.txt"
-filen = (rea,"r")
-filewr = (wri,"w")
+filen = open(rea,"r")
+filewr = open(wri,"w")
 with open(rea,"r") as x:
 	contents = x.read()
 
 	if "jpg" in x:
-
 		m = len(x)
-
+	
 		while z < m :
 			if x[z:z2] == "src" :
 				q = z
