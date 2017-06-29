@@ -34,17 +34,18 @@ with open(rea,"r") as x:
 				a = (alt[:-3])
 				
 				if int(wid) > int(hi):
-					f = "900 "
+					f ="\"900\"  "
 				else:
-					f = "500 "
+					f ="\"500\"  "
+
 			#	print(hi)
 			#	print(wid)
 				
 				y = y + 1	
-				print("\n",file = filewr)
-				print('<p>'+str(y)+'.', file = filewr)
-				print('<br>'+contents[q:z2+2]+f+str(a), file = filewr)
-				print('\n', file = filewr)
+			#	print("\n",file = filewr)
+				print("\n"+'<p>'+str(y)+'. ', file = filewr)
+				print('<br>'+contents[q:z2+2]+str(f)+str(a), file = filewr)
+			#	print('\n', file = filewr)
 				z2 = z2 + 1
 				z = z + 1
 
