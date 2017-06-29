@@ -1,3 +1,4 @@
+import re
 y = 0
 z2 = 4
 z = 0
@@ -21,34 +22,36 @@ with open(rea,"r") as x:
 				z = z +1 
 
 			elif contents[z:z2] == "widt" :
-				w = z2 + 4
-				w2 = w + 3
-				if w2 != 1 or w2 != 2 or w2 != 3 or w2 != 4 or w2 != 5 or w2 != 6 or w2 != 7 or w2 != 8 or w2 != 9 or w2 != 0:
-					w2 = w2 - 1
+				alt = re.search(r"(alt=\".*\"></a)(.*)",contents[z:]) 
+				wmat = re.search(r"(width=\")([0-9]*)",contents[z:]) 
+				hmat = re.search(r"(height=\")([0-9]*)",contents[z:])
+					
 
-				h = w2 + 11
-				h2 = h + 3
-				if h2 != 1 or h2 != 2 or h2 != 3 or h2 ! =  4 or h2 != 5 or h2 !=  6 or h2 != 7 or h2 != 8 or h2 != 9 or h2 != 0:
-					h2 = h2 - 1
+				wid = wmat.group(2) if wmat else None
+				hi = hmat.group(2) if hmat else None
+				alt = alt.group(1) if alt else None
 				
-				wid = int(contents[w:w2])
-				hi = int(contents[h:h2])
-				if wid > hi:
-					f = "900"
+				a = (alt[:-3])
+				
+				if int(wid) > int(hi):
+					f = "900 "
 				else:
-					f = "500"
-
+					f = "500 "
+			#	print(hi)
+			#	print(wid)
+				
 				y = y + 1	
-				print("\n")
-				print('<p>'+str(y)+'.')
-				print('<br>'+contents[q:z2+2]+f)
-				print('\n')
+				print("\n",file = filewr)
+				print('<p>'+str(y)+'.', file = filewr)
+				print('<br>'+contents[q:z2+2]+f+str(a), file = filewr)
+				print('\n', file = filewr)
 				z2 = z2 + 1
 				z = z + 1
 
-			elif contents[z:z2] == "alt=":
-				z2 = z2 + 1
-				z = z + 1
+		#	elif contents[z:z2] == "alt=":
+
+		#		z2 = z2 + 1
+		#		z = z + 1
 
 			else:
 				z = z + 1
